@@ -1,35 +1,25 @@
-const test1 = [4,2,2]; 
+import { getConjugateCollection, printMatrix, handlerStringOfNumbers ,} from '../src/index';
+import * as readline from 'readline';
 
-export function getConjugateCollection(numbers: number[]) : number[]{
-  const secondMap = new Map<number, number>();
-  for(let i = 0; i <= numbers.length; i++) {
-    for(let j = 1; j <= numbers[i]; j++) {
-      if(!secondMap.get(j)){
-        secondMap.set(j, 1);
-      } else{
-        secondMap.set(j, secondMap.get(j)! + 1);
-      }
-    }
-  }
-  return Array.from(secondMap.values())
-}
+var rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
-export function printMatrix(numbers: number[]){
-  for(let i = 0; i <= numbers.length; i++) {
-    let out = ""
-    for(let j = 1; j <= numbers[i]; j++) {
-      out += " O ";
-    }
-    console.log(out);
-  }
-}
+rl.question('Enter a collection of integers (separated by commas): ', (answer) => {
+  console.log('----------------');
+
+  const collection = handlerStringOfNumbers(answer);
+  console.log(`Collection inserted: {${collection}}`);
+  console.log('----------------');
+  printMatrix(collection);
 
 
-console.log(test1);
-printMatrix(test1);
+  console.log('----------------');
+  const conjugateCollection = getConjugateCollection(collection);
+  console.log(`Conjugate Collection: {${conjugateCollection}}`);
+  console.log('----------------');
+  printMatrix(conjugateCollection);
 
-const conjugateCollection = getConjugateCollection(test1);
-console.log(conjugateCollection);
-printMatrix(conjugateCollection);
-
-
+  rl.close();
+});
