@@ -13,8 +13,9 @@ export function getConjugateCollection(numbers: number[]): number[] {
   if (numbers.some((_number) => _number <= 0)) throw new Error(NegativeError);
 
   const secondMap = new Map<number, number>();
-  for (let i = 0; i <= numbers.length; i++) {
-    for (let j = 1; j <= numbers[i]; j++) {
+
+  for (const num of numbers) {
+    for (let j = 1; j <= num; j++) {
       if (!secondMap.get(j)) {
         secondMap.set(j, 1);
       } else {
@@ -22,13 +23,15 @@ export function getConjugateCollection(numbers: number[]): number[] {
       }
     }
   }
+
   return Array.from(secondMap.values());
 }
 
 export function printMatrix(numbers: number[]) {
-  for(const num of numbers){
-   const row = Array.from(new Array(num),(val,index)=> " O ");
-   console.log(row)
+  for (const num of numbers) {
+    console.log(num);
+    const row = Array.from(new Array(num), (val, index) => ' O ');
+    console.log(row);
   }
 }
 

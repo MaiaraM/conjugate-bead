@@ -1,7 +1,7 @@
-import { getConjugateCollection, printMatrix, handlerStringOfNumbers ,} from '../src/index';
+import { getConjugateCollection, printMatrix, handlerStringOfNumbers } from '../src/index';
 import * as readline from 'readline';
 
-var rl = readline.createInterface({
+const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
@@ -14,12 +14,9 @@ rl.question('Enter a collection of integers (separated by commas): ', (answer) =
   console.log('----------------');
   printMatrix(collection);
 
-
   console.log('----------------');
   const conjugateCollection = getConjugateCollection(collection);
   console.log(`Conjugate Collection: {${conjugateCollection}}`);
-  console.log('----------------');
-  printMatrix(conjugateCollection);
 
   rl.close();
 });

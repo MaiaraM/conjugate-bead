@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --config jestconfig.json",
+    "test": "jest",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "build": "tsc",
     "prepare": "npm run build",
-    "start":"npx ts-node src/main.ts"
+    "start": "npx ts-node src/main.ts"
   },
   "repository": {
     "type": "git",
